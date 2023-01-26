@@ -30,7 +30,9 @@ public class SecurityConfig {
         .anyRequest().permitAll() //위 세개 주소 이외는 모든 권한 허용
         .and()
         .formLogin()
-        .loginPage("/loginForm"); 
+        .loginPage("/loginForm")
+        .loginProcessingUrl("login") //login주소가 호출이 되면 시큐리티가 낚아채서 대신 로그인을 (진행해준다)
+        .defaultSuccessUrl("/");
 
 
         return http.build();

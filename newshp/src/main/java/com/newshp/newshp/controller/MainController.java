@@ -5,7 +5,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.newshp.newshp.model.User;
 import com.newshp.newshp.repository.UserRepository;
@@ -52,7 +51,7 @@ public class MainController {
         String rawPassword = user.getPassword();
         String encPassword = bCryptPasswordEncoder.encode(rawPassword);
         user.setPassword(encPassword);
-        
+
 
         userRepository.save(user); //시큐리티로 로그인 할 수 없음 , 패스워드가 암호화가 안되어있으므로
 
