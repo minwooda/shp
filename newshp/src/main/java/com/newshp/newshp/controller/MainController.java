@@ -52,6 +52,7 @@ public class MainController {
         String rawPassword = user.getPassword();
         String encPassword = bCryptPasswordEncoder.encode(rawPassword);
         user.setPassword(encPassword);
+        
 
         userRepository.save(user); //시큐리티로 로그인 할 수 없음 , 패스워드가 암호화가 안되어있으므로
 
